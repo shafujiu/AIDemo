@@ -1,0 +1,7 @@
+   path: ../datasets/3C-Circle
+   train: train/images
+   val: train/images
+   test:
+   nc: 1
+   names: 
+      0: circle

@@ -1,0 +1,13 @@
+description: Ultralytics YOLOv8n model trained on Base-3C-Circle-Mark/Base-3C-Circle-Mark.yaml
+author: Ultralytics
+license: AGPL-3.0 https://ultralytics.com/license
+date: '2024-02-06T16:33:07.086078'
+version: 8.1.8
+stride: 32
+task: detect
+batch: 1
+imgsz:
+- 640
+- 640
+names:
+  0: circle
