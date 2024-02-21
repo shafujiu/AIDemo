@@ -1,9 +1,16 @@
 from  ultralytics import YOLO
-# model = YOLO('yolov8n.yaml')  # build a new model from YAML 首次
-# 接着之前已经训练好的模型训练
-# model = YOLO('runs/detect/train8/weights/best.pt')
+import os
+os.environ['WANDB_MODE'] = 'dryrun' # 去除wandb同步选择
+
+# model = YOLO('yolov8n.yaml')  # build a new model from YAML
+# model = YOLO('yolov8n.pt') # 切记加载预训练模型
+
+model = YOLO('circle_pre.pt')
+results = model.train(data='Base-3C-Circle-Mark/3C-Circle-Mark-Sub.yaml', epochs=1000, device='mps', imgsz=960)
+
+
 # 恢复
-model = YOLO('runs/detect/train8/weights/last.pt')
-results = model.train(resume=True)
-# results = model.train(data='Base-3C-Circle-Mark/Base-3C-Circle-Mark.yaml', epochs=1000, device='mps')
-success = model.export(format='onnx')
+# model = YOLO('runs/detect/train4/weights/best.pt')
+# model.val()
+# results = model.train(resume=True)
+# success = model.export(format='coreml')
