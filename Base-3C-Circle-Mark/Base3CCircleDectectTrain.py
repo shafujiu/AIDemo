@@ -10,7 +10,7 @@ os.environ['WANDB_MODE'] = 'dryrun' # 去除wandb同步选择
 
 # 恢复
 model = YOLO('runs/detect/train/weights/last.pt')
-results = model.train(resume=True)
+results = model.train(resume=True, imgsz=[400,640])
 # 验证
 # model.val()w
 # 导出模型
